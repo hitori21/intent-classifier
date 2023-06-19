@@ -31,11 +31,11 @@ def number_formatter(angka):
 
 		
 def list_files_by_extension(extension):
-    current_dir = os.getcwd()  
-    file_list = []
+	current_dir = os.getcwd()  
+	file_list = []
 
-    for file in os.listdir(current_dir):
-        if file.endswith(extension):
-            file_list.append(file)
+	for file in os.listdir(current_dir):
+		if file.endswith(extension):
+			file_list.append(file)
 
-    return file_list
+	return file_list

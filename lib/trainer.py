@@ -8,14 +8,14 @@ from datetime import timedelta
 
 
 class Trainer:
-    def __init__(self, model, loader, optimizer, epochs):
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+	def __init__(self, model, loader, optimizer, epochs):
+		self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 		self.model = model
 		self.loader = loader
 		self.optimizer = optimizer
 		self.epochs = epochs
-        
-    def fit(self):
+		
+	def fit(self):
 		prev_loss = float("inf")
 		start_time = time.monotonic()
 
