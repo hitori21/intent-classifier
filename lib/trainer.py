@@ -29,8 +29,8 @@ class Trainer:
 			)
 		)
 
-		model.train()
-		model.to(self.device)
+		self.model.train()
+		self.model.to(self.device)
 
 		criterion = nn.CrossEntropyLoss()
 		scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer, patience=5, factor=0.1, verbose=True)
