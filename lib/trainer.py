@@ -33,7 +33,6 @@ class Trainer:
 		self.model.to(self.device)
 
 		criterion = nn.CrossEntropyLoss()
-		scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer, patience=5, factor=0.1, verbose=True)
 
 		for epoch in range(self.epochs):
 			for words, labels in self.loader:
@@ -75,5 +74,3 @@ class Trainer:
 					)
 				)
 				prev_loss = loss.item()
-				
-			scheduler.step(loss)
