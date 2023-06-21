@@ -47,7 +47,7 @@ def SaveData(file_path, *args, **kwargs):
 def main():
 	parser = argparse.ArgumentParser(description='Konfigurasi data training untuk Model AI')
 
-	parser.add_argument('--lr', type=float, default=0.0001,
+	parser.add_argument('--lr', type=float, default=0.001,
 						help='Learning rate yang digunakan saat pelatihan model')
 	parser.add_argument('--dataset', type=str, default='data/dataset.json',
 						help='Lokasi dataset untuk pelatihan model')

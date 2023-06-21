@@ -44,7 +44,7 @@ class Chatbot:
 		return tag, prob
 
 	def reply(self, message):
-		tag, prob = self.predict_intent(message)
+		tag, prob = self.predict(message)
 
 		intents = mlpic_model["intents"]
 		if prob.item() >= 0.99:
@@ -57,7 +57,7 @@ class Chatbot:
 
 
 def main():
-	Chatbot = Chatbot()
+	chatbot = Chatbot()
 	os.system("clear")
 	print(colorama.Fore.MAGENTA + f"{'#' * 19} type 'quit' to exit {'#' * 19}" + colorama.Style.RESET_ALL + "\n\n")
 	
@@ -68,7 +68,7 @@ def main():
 			os.system("clear")
 			break
 		
-		response, metadata = Chatbot.reply(message)
+		response, metadata = chatbot.reply(message)
 		display(response + "\n")
 		#pprint(metadata)
 		print()
