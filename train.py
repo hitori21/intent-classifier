@@ -49,8 +49,8 @@ def main():
 
 	parser.add_argument('--lr', type=float, default=0.001,
 						help='Learning rate yang digunakan saat pelatihan model')
-	parser.add_argument('--dataset', type=str, default='data/dataset.json',
-						help='Lokasi dataset untuk pelatihan model')
+	parser.add_argument('--dataset', type=str, default='dataset',
+						help='Nama file dataset pada folder data/')
 	parser.add_argument('--batch_size', type=int, default=16,
 						help='Ukuran batch saat pelatihan model')
 	parser.add_argument('--n_epochs', type=int, default=1000,
@@ -66,7 +66,7 @@ def main():
 	N_EPOCHS = args.n_epochs
 	N_HIDDEN = args.n_hidden
 
-	x, y, all_words, tags, intents = prepare_data(DATASET)
+	x, y, all_words, tags, intents = prepare_data(f"data/{DATASET}.json")
 	dataset = Intents(x, y)
 	dataloader = DataLoader(dataset=dataset, batch_size=BATCH_SIZE, shuffle=True)
 	model = MLPIC(len(x[0]), N_HIDDEN, len(tags))

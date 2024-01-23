@@ -3,6 +3,7 @@ import torch
 import os
 import random
 import colorama
+from rich.pretty import pprint
 
 from model.models import MLPIC
 from lib.preprocess import bag_of_words, tokenize
@@ -12,8 +13,8 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 checkpoints = list_files_by_extension(".bin")
 
-# FILE = input(f"Insert model's filename {checkpoints}: ")
-FILE = checkpoints[0]
+FILE = input(f"Insert model's filename {checkpoints}: ")
+#FILE = checkpoints[0]
 MODEL = torch.load(FILE, map_location=device)
 mlpic_model = MODEL["MLPIC"]
 
@@ -70,7 +71,9 @@ def main():
 		
 		response, metadata = chatbot.reply(message)
 		display(response + "\n")
-		#pprint(metadata)
+		
+		pprint(metadata)
+		
 		print()
 
 
